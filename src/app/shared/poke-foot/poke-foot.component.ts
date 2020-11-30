@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokeFootComponent implements OnInit {
 
-  constructor() { }
+  public profile: string;
+
+  constructor() {
+    this.profile = 'https://github.com/alejandrocalderonhernandez';
+   }
 
   ngOnInit(): void {
   }

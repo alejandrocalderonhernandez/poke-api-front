@@ -1,13 +1,10 @@
 export class ResponseInfo {
-    nextPage: string;
-    previousPage: string;
+    totalRecords: number;
     results: Array<string>;
 
-    constructor(nextPage: string,
-                previousPage: string,
+    constructor(totalRecords: number,
                 results: Array<string>) {
-        this.nextPage = nextPage;
-        this.previousPage = previousPage;
+        this.totalRecords = totalRecords;
         this.results = results;        
     }
 } 

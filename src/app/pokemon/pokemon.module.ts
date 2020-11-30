@@ -7,7 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PaginatorComponent } from './paginator/paginator.component';
 
 import {MatPaginatorModule} from '@angular/material/paginator';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [

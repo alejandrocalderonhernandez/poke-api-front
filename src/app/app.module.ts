@@ -12,6 +12,9 @@ import { PokeFootComponent } from './shared/poke-foot/poke-foot.component'
 
 import {MatButtonModule} from '@angular/material/button';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +29,12 @@ import {MatButtonModule} from '@angular/material/button';
     PokemonModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    
+    FontAwesomeModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  exports: [
+    FontAwesomeModule
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

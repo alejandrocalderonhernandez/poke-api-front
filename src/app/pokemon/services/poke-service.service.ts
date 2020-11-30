@@ -25,7 +25,7 @@ export class PokeServiceService {
       .set('limit',environment.limitRecords.toString())
       .set('offset', page.toString());
     return this.httpClient.get(endpoint, {params}).pipe(
-      map((data:any) => new ResponseInfo(data.next, data.previous, this.getUrls(data.results)))
+      map((data:any) => new ResponseInfo(data.count, this.getUrls(data.results)))
     );
   }
 
@@ -53,7 +53,6 @@ export class PokeServiceService {
   }
 
   private getType(types: Array<any>) {
-    console.log(types[0].type.name)
     return types[0].type.name;
   }
 
