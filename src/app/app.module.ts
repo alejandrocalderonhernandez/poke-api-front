@@ -1,35 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MainFormComponent } from './components/main-form/main-form.component';
-import { PokemonModule } from './pokemon/pokemon.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PokeNavComponent } from './shared/poke-nav/poke-nav.component';
-import { PokeFootComponent } from './shared/poke-foot/poke-foot.component'
-
-import {MatButtonModule} from '@angular/material/button';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { PokemonModule } from './pokemon/pokemon.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MainFormComponent,
-    PokeNavComponent,
-    PokeFootComponent
+    AppComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     PokemonModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    LoginModule
   ],
   providers: [],
   exports: [

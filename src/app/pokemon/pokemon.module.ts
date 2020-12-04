@@ -4,7 +4,6 @@ import { MainTemplateComponent } from './main-template/main-template.component';
 import { CardTemplateComponent } from './card-template/card-template.component';
 import { DetailsTemplateComponent } from './details-template/details-template.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PaginatorComponent } from './paginator/paginator.component';
 
 import {MatPaginatorModule} from '@angular/material/paginator';
 
@@ -15,8 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   declarations: [
     MainTemplateComponent, 
     CardTemplateComponent, 
-    DetailsTemplateComponent, 
-    PaginatorComponent],
+    DetailsTemplateComponent],
   imports: [
     CommonModule,
     HttpClientModule,

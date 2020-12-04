@@ -1,4 +1,16 @@
-<div class="card-columns">
-    <app-card-template *ngFor="let pokerecord of pokeRecords" [pokemon]="pokerecord"></app-card-template>
+<br>
+<div *ngIf="!isLoading">
+    <div class="card-columns">
+        <app-card-template *ngFor="let pokerecord of pokeRecords" 
+                           [pokemon]="pokerecord">
+        </app-card-template>
+    </div>
+    <mat-paginator [pageSize]="pageSize" 
+                   [length]="totalRecords" 
+                   [pageIndex]="pageIndex"
+                   style="background-color: brown;" 
+                   (page)="onPageChange($event)"> 
+    </mat-paginator>
 </div>
-<mat-paginator [pageSize]="pageSize" [length]="totalRecords" style="background-color: brown;" (page)="onPageChange($event)"> </mat-paginator>
+
+<app-loading *ngIf="isLoading"></app-loading>
