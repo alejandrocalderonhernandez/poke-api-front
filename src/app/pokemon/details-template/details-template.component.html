@@ -1,1 +1,23 @@
-<p>details-template works!</p>
+<div class="card" [ngClass]="typeClass">
+    <img class="card-img-top" [src]="pokemon.image" alt="Card image">
+    <div class="card-body">
+      <h2 class="card-title text-light">{{pokemon.name | titlecase}}</h2>
+      <div class="text-light">
+        <div class="row">
+          <div class="col-6">
+            <ul>
+              <li>Id: {{pokemon.id}}</li>
+              <li>Peso: {{pokemon.height}}</li>
+            </ul>
+          </div>
+            <div class="col-6">
+              <ul>
+                <li>Tipo: {{pokemon.type}}</li>
+                <li>Altura: {{pokemon.weight}}</li>
+              </ul>
+            </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <app-loading *ngIf="isLoading"></app-loading> -->

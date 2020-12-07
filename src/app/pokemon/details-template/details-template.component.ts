@@ -1,3 +1,4 @@
+import { Pokemon } from './../models/pokemon.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details-template.component.scss']
 })
 export class DetailsTemplateComponent implements OnInit {
+
+  public pokemon: Pokemon;
+
+  typeClass: string;
 
   constructor() { }
 

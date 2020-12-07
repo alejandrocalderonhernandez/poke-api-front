@@ -10,7 +10,7 @@ import { faInfoCircle, IconDefinition } from '@fortawesome/free-solid-svg-icons'
 export class CardTemplateComponent implements OnInit {
 
   @Input()
-  pokemon: Pokemon;
+  public pokemon: Pokemon;
 
   typeClass: string;
   faInfoCircle: IconDefinition;

@@ -14,9 +14,17 @@ export class PokeServiceService {
   
   constructor(private httpClient: HttpClient) { }
 
-  public findByPokeName(name: string): Pokemon {
-    const endpoint = `${environment.baseUrl}${name}/`;
-    return null;
+  public findByPokeName(name: string): Observable<Pokemon> {
+    const url = `${environment.baseUrl}pokemon/${name}`;
+    return this.httpClient.get(url).pipe(
+      map((data:any) => new Pokemon(data.id, 
+                                    data.name, 
+                                    data.height, 
+                                    data.weight, 
+                                    this.getType(data.types),
+                                    this.buidImageUrl(data.id),
+                                    this.getMoves(data.moves)))
+    );
   }
 
   public findByPage(page: number): Observable<ResponseInfo> {    
@@ -52,8 +60,15 @@ export class PokeServiceService {
     return `${environment.ImageUrl}${id}${environment.imageSufix}`
   }
 
-  private getType(types: Array<any>) {
+  private getType(types: Array<any>): string {
     return types[0].type.name;
+  }
+
+  private getMoves(moves: Array<any>): Array<string> {
+    let result = new Array<string>();
+    moves.forEach(m => result.push(m.move.name));
+    console.log(moves.length)
+    return result;
   }
 
 }

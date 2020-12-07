@@ -1,0 +1,22 @@
+<div class="modal-dialog">
+    <div class="modal-content bg-dark">
+        <div class="row justify-content-center text-white"> 
+            <form [formGroup]="searchForm" (ngSubmit)="search()" class="form">
+                <div class="form-group"> 
+                     <mat-form-field>
+                        <mat-label> 
+                             Nombre
+                        </mat-label>
+                        <input matInput formControlName="name" type="text">
+                        <mat-error *ngIf="searchForm.controls.name.touched && searchForm.controls.name.invalid">
+                            <span *ngIf="searchForm.controls.name.errors.required">Esta propidad es requerida</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <div class="form-container">
+                        <button class="btn btn-light btn-block" type="submit">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>    
+</div>

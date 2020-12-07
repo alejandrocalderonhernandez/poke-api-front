@@ -7,21 +7,27 @@ import { Injectable } from '@angular/core';
 export class LoginService {
 
   private authenticated: boolean;
+  private username: string;
 
   constructor() { 
     this.authenticated = false;
   }
 
+  //put your auth service here
   public isAutenticated(): boolean {
-    return this.authenticated;
+    return true;
   }
 
   public login(user: User): void {
-    console.log(user);
-    if(user.password !== null) {
-      this.authenticated = true;
-    } else {
-      this.authenticated = true;
-    }
+    this.username = user.username;
+    this.authenticated = true;
+  }
+
+  public logout(){
+    this.authenticated = false;
+  }
+
+  public getUsername(): string {
+    return this.username;
   }
 }

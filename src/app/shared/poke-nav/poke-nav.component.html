@@ -1,6 +1,11 @@
-<nav class="navbar navbar-light main-nav-satyle">
-    <a class="navbar-brand" href="#">
+<nav class="navbar main-nav-satyle text-light">
+    <strong class="navbar-brand">
       <img [src]="iconUrl" width="30" height="30" class="d-inline-block align-top" alt="">
-      <span class="text-light">{{aplicationName | uppercase}}</span>
-    </a>
+      <span>{{aplicationName | uppercase}}</span>
+    </strong>
+
+    <div class="my-2 my-sm-0">
+      <span><strong>Bienvenido </strong>{{username}} </span>
+      <button class="btn btn-outline-light" (click)="logout()">Salir</button>
+    </div>
 </nav>

@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { LoginService } from './../../login/services/login.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,15 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokeNavComponent implements OnInit {
 
-  iconUrl: string;
-  aplicationName: string;
+  public iconUrl: string;
+  public aplicationName: string;
+  public username: string;
 
-  constructor() { 
+  constructor(private loginService: LoginService, private router: Router) { 
     this.iconUrl = '/assets/pokeball.png';
     this.aplicationName = 'pokeapi';
   }
 
   ngOnInit(): void {
+    this.username = this.loginService.getUsername();
+  }
+
+  public logout(): void {
+    this.loginService.logout();
+    this.router.navigate(['']);
   }
 
 }

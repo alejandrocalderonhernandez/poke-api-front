@@ -1,3 +1,5 @@
+<app-poke-nav></app-poke-nav>
+<app-poke-search></app-poke-search>
 <br>
 <div *ngIf="!isLoading">
     <div class="card-columns">
@@ -12,5 +14,4 @@
                    (page)="onPageChange($event)"> 
     </mat-paginator>
 </div>
-
 <app-loading *ngIf="isLoading"></app-loading>
