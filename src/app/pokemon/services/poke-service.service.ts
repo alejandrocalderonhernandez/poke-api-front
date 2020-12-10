@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PokeServiceService {
+export class PokeService {
   
   constructor(private httpClient: HttpClient) { }
 

@@ -1,4 +1,5 @@
-import { PokeServiceService } from './../services/poke-service.service';
+import { PokeService } from './../services/poke-service.service';
+import { faSearch, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -11,10 +12,13 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class PokeSearchComponent implements OnInit {
 
   public searchForm: FormGroup;
+  public faSearch: IconDefinition
 
   constructor(private formBuilder: FormBuilder, 
               private router: Router,
-              private service: PokeServiceService) { }
+              private service: PokeService) { 
+                this.faSearch = faSearch;
+   }
 
   ngOnInit(): void {
     this.searchForm = this.formBuilder.group({

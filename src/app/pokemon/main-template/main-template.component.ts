@@ -1,5 +1,5 @@
 import { environment } from './../../../environments/environment';
-import { PokeServiceService } from './../services/poke-service.service';
+import { PokeService } from './../services/poke-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../models/pokemon.model';
 import { PageEvent } from '@angular/material/paginator';
@@ -19,7 +19,7 @@ export class MainTemplateComponent implements OnInit {
   public pageIndex: number;
   public isLoading: boolean;
 
-  constructor(private service: PokeServiceService) {
+  constructor(private service: PokeService) {
     this.totalRecords = 0;
     this.pageIndex = 0;
     this.isLoading = true;

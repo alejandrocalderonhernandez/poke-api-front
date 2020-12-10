@@ -1,8 +1,8 @@
-<div class="card" [ngClass]="typeClass">
+<div class="d-flex justify-content-center text-white" *ngIf="pokemon !== undefined">
+  <div class="card" style="width:750px"  [ngClass]="pokemon.type === undefined ? 'default' : pokemon.type">
     <img class="card-img-top" [src]="pokemon.image" alt="Card image">
     <div class="card-body">
-      <h2 class="card-title text-light">{{pokemon.name | titlecase}}</h2>
-      <div class="text-light">
+      <h2 class="card-title">{{pokemon.name}}</h2>
         <div class="row">
           <div class="col-6">
             <ul>
@@ -17,7 +17,21 @@
               </ul>
             </div>
       </div>
-    </div>
+      <hr>
+      <div class="row">
+          <div class="col-6">
+            <h3>Habilidades</h3>
+            <ol>
+              <li *ngFor="let move of pokemon.moves">{{move}}</li>
+            </ol>
+          </div>
+            <div class="col-6">
+              <h3>Description</h3>
+              <p>
+                {{dummy}}
+              </p>
+            </div>
+      </div>
   </div>
-
-  <!-- <app-loading *ngIf="isLoading"></app-loading> -->
+</div>
+<app-loading *ngIf="isLoading"></app-loading>

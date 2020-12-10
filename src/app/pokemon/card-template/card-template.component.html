@@ -1,8 +1,7 @@
-<div class="card" style="width:445px" [ngClass]="typeClass">
+<div class="card text-light" style="width:445px"  [ngClass]="pokemon.type === undefined ? 'default' : pokemon.type">
   <img class="card-img-top" [src]="pokemon.image" alt="Card image">
   <div class="card-body">
-    <h2 class="card-title text-light">{{pokemon.name | titlecase}}</h2>
-    <div class="text-light">
+    <h2 class="card-title">{{pokemon.name | titlecase}}</h2>
       <div class="row">
         <div class="col-6">
           <ul>
@@ -17,9 +16,9 @@
             </ul>
           </div>
     </div>
-  <button class="btn btn-light btn-block">
-    <fa-icon [icon]="faInfoCircle"></fa-icon>
-    More info
-  </button>
-  </div>
+    <button class="btn btn-light btn-block" (click)="onLoad()">
+      <fa-icon [icon]="faInfoCircle"></fa-icon>
+      Mas informacion
+    </button>
+ </div>
 </div>

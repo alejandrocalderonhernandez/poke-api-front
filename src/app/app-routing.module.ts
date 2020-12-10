@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: 'poke-cards',
   canLoad: [AuthGuard],
     loadChildren: () => import('./pokemon/pokemon.module')
-       .then(m => m.PokemonModule)  
+       .then(m => m.PokemonModule)
   },
   {path: '', component: LoginComponent},
   {path: '**', redirectTo: ''},
