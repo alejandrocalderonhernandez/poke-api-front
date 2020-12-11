@@ -29,9 +29,6 @@ export class PokeSearchComponent implements OnInit {
   public search(): void {
     const pokename = this.searchForm.get('name').value;
     this.router.navigate(['poke-cards/pokemon', pokename]);
-    this.service.findByPokeName(this.searchForm.get('name').value).subscribe(
-      r => console.log(r)
-    )
   }
 
 }

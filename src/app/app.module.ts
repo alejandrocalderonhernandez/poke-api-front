@@ -1,3 +1,4 @@
+import { UtilModule } from './util/util.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -11,7 +12,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { PokemonModule } from './pokemon/pokemon.module';
 import { LoginModule } from './login/login.module';
-
 @NgModule({
   declarations: [
     AppComponent
@@ -28,7 +28,7 @@ import { LoginModule } from './login/login.module';
   ],
   providers: [],
   exports: [
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   bootstrap: [AppComponent],
 })

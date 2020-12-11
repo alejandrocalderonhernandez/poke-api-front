@@ -1,3 +1,6 @@
+import { UtilModule } from './../util/util.module';
+import { ToMetersPipe } from './../util/to-meters.pipe';
+import { ToKilosPipe } from './../util/to-kilos.pipe';
 import { pokeroutes } from './pokemon.routes';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './../shared/shared.module';
@@ -28,7 +31,7 @@ import { PokeAppComponent } from './poke-app/poke-app.component';
     CardTemplateComponent, 
     DetailsTemplateComponent, 
     PokeSearchComponent, 
-    PokeAppComponent
+    PokeAppComponent,
   ],
   imports: [
     RouterModule.forChild(pokeroutes),
@@ -43,10 +46,15 @@ import { PokeAppComponent } from './poke-app/poke-app.component';
     MatButtonModule,
     MatRadioModule,
     MatToolbarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UtilModule
   ],
   exports: [
     RouterModule
+  ],
+  providers: [
+   ToKilosPipe,
+   ToMetersPipe
   ]
 })
 export class PokemonModule { }

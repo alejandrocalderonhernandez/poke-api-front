@@ -7,13 +7,13 @@
           <div class="col-6">
             <ul>
               <li>Id: {{pokemon.id}}</li>
-              <li>Peso: {{pokemon.height}}</li>
+              <li>Peso: {{pokemon.height | toKilos}} kg</li>
             </ul>
           </div>
             <div class="col-6">
               <ul>
                 <li>Tipo: {{pokemon.type}}</li>
-                <li>Altura: {{pokemon.weight}}</li>
+                <li>Altura: {{pokemon.weight | toMeters}} m</li>
               </ul>
             </div>
       </div>
