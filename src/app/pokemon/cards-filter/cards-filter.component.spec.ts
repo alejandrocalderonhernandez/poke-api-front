@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainTemplateComponent } from './main-template.component';
+import { CardsFilterComponent } from './cards-filter.component';
 
-describe('MainTemplateComponent', () => {
-  let component: MainTemplateComponent;
-  let fixture: ComponentFixture<MainTemplateComponent>;
+describe('CardsFilterComponent', () => {
+  let component: CardsFilterComponent;
+  let fixture: ComponentFixture<CardsFilterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainTemplateComponent ]
+      declarations: [ CardsFilterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainTemplateComponent);
+    fixture = TestBed.createComponent(CardsFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

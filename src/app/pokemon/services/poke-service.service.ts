@@ -37,6 +37,13 @@ export class PokeService {
     );
   }
 
+  public findAll(): Observable<ResponseInfo> {    
+    const endpoint = `${environment.baseUrl}pokemon?limit=1118&offset=0`;
+    return this.httpClient.get(endpoint).pipe(
+      map((data:any) => new ResponseInfo(data.count, this.getUrls(data.results)))
+    );
+  }
+
   public findByUrl(url: string): Observable<Pokemon> {    
     return this.httpClient.get(url).pipe(
       map((data:any) => new Pokemon(data.id, 
@@ -46,6 +53,15 @@ export class PokeService {
                                     this.getType(data.types),
                                     this.buidImageUrl(data.id)))
     );
+  }
+
+  public getPokeTypes(): Observable<Array<string>> {
+    const endpoint = `${environment.baseUrl}type`;
+    return this.httpClient.get(endpoint).pipe(
+      map((data: any) => {
+        return this.getTypes(data.results);
+      })  
+    )
   }
 
   private getUrls(array: Array<any>): Array<string>{
@@ -71,4 +87,7 @@ export class PokeService {
     return result;
   }
 
+  private getTypes(types: Array<any>): Array<string> {
+     return types.map(type => type.name);
+  }
 }

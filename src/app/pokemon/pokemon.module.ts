@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainTemplateComponent } from './main-template/main-template.component';
+import { MainSectionComponent } from './main-section/main-section.component';
 import { CardTemplateComponent } from './card-template/card-template.component';
 import { DetailsTemplateComponent } from './details-template/details-template.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,20 +18,22 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSelectModule} from '@angular/material/select';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PokeSearchComponent } from './poke-search/poke-search.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { PokeAppComponent } from './poke-app/poke-app.component';
+import { CardsFilterComponent } from './cards-filter/cards-filter.component';
 
 @NgModule({
   declarations: [
-    MainTemplateComponent, 
+    MainSectionComponent, 
     CardTemplateComponent, 
     DetailsTemplateComponent, 
     PokeSearchComponent, 
-    PokeAppComponent,
+    PokeAppComponent, CardsFilterComponent
   ],
   imports: [
     RouterModule.forChild(pokeroutes),
@@ -47,6 +49,7 @@ import { PokeAppComponent } from './poke-app/poke-app.component';
     MatRadioModule,
     MatToolbarModule,
     ReactiveFormsModule,
+    MatSelectModule,
     UtilModule
   ],
   exports: [

@@ -12,6 +12,20 @@
                             <span *ngIf="searchForm.controls.name.errors.required">Esta propidad es requerida</span>
                         </mat-error>
                     </mat-form-field>
+                </div>
+                <div class="form-group"> 
+                    <mat-form-field>
+                        <mat-label>
+                            Selecciona un tipo
+                        </mat-label>
+                        <mat-select formControlName="type">
+                            <div *ngFor="let type of types">
+                                <mat-option [value]="type">{{type}}</mat-option>
+                            </div>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-group"> 
                     <div class="form-container">
                         <button class="btn btn-light btn-block" type="submit">
                             <fa-icon [icon]="faSearch"></fa-icon>

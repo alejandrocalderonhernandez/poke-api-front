@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ToMetersPipe implements PipeTransform {
 
   transform(value: number): number {
-    const baseUnit =  0.10;
+    const baseUnit =  0.01;
     return Math.round((value*baseUnit) * 100) / 100;
   }
 

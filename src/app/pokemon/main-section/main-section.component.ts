@@ -1,16 +1,16 @@
-import { environment } from './../../../environments/environment';
-import { PokeService } from './../services/poke-service.service';
+import { environment } from '../../../environments/environment';
+import { PokeService } from '../services/poke-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../models/pokemon.model';
 import { PageEvent } from '@angular/material/paginator';
 
 
 @Component({
-  selector: 'app-main-template',
-  templateUrl: './main-template.component.html',
-  styleUrls: ['./main-template.component.scss']
+  selector: 'app-main-section',
+  templateUrl: './main-section.component.html',
+  styleUrls: ['./main-section.component.scss']
 })
-export class MainTemplateComponent implements OnInit {
+export class MainSectionComponent implements OnInit {
 
   public urls: Array<string> = new Array<string>();
   public pokeRecords: Array<Pokemon> = new Array<Pokemon>();

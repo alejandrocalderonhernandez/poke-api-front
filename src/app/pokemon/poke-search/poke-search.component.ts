@@ -12,23 +12,40 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class PokeSearchComponent implements OnInit {
 
   public searchForm: FormGroup;
-  public faSearch: IconDefinition
+  public faSearch: IconDefinition;
+  public types: Array<string>;
+  public validForm;
 
   constructor(private formBuilder: FormBuilder, 
               private router: Router,
               private service: PokeService) { 
                 this.faSearch = faSearch;
+                this.validForm = true;
    }
 
   ngOnInit(): void {
+    this.service.getPokeTypes().subscribe(
+      data => this.types = data 
+    )
     this.searchForm = this.formBuilder.group({
-      name: [null, Validators.required]
+      name: [],
+      type: []
     });
   }
 
   public search(): void {
     const pokename = this.searchForm.get('name').value;
-    this.router.navigate(['poke-cards/pokemon', pokename]);
+    const type = this.searchForm.get('type').value;
+    if(pokename !== undefined && type === null) {
+      this.validForm = true;
+      this.router.navigate(['poke-cards/pokemon', pokename]);
+    } else if (type !== undefined && pokename === null) {
+      this.validForm = true;
+      this.router.navigate(['poke-cards/pokemons', type]);
+    } else {
+      this.validForm = false;
+    }
+
   }
 
 }
