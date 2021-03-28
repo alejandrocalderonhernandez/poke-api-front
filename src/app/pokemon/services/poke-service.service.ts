@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Pokemon } from '../models/pokemon.model';
 import { ResponseInfo } from '../models/response.model';
 import { environment } from '../../../environments/environment';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 
@@ -55,7 +55,7 @@ export class PokeService {
     );
   }
 
-  public getPokeTypes(): Observable<Array<string>> {
+  public getPokeTypes(): Observable<Map<number, string>> {
     const endpoint = `${environment.baseUrl}type`;
     return this.httpClient.get(endpoint).pipe(
       map((data: any) => {
@@ -87,7 +87,31 @@ export class PokeService {
     return result;
   }
 
-  private getTypes(types: Array<any>): Array<string> {
-     return types.map(type => type.name);
+  private getTypes(types: Array<any>): Map<number, string> {
+    const delimiter = '/';
+    const idPosition = 6
+    let response = new Map<number, string>();
+     types.forEach((t: any) => {
+       let array = t.url.split(delimiter);
+       let id = array[idPosition];
+       response.set(id, t.name);
+     });
+    return response;
+  }
+
+  public getByType(id: string): Array<Pokemon> {
+    let response = [];
+    const url = `${environment.baseUrl}type/${id}`;
+    this.httpClient.get(url).subscribe((data: any) => {
+      data.pokemon.forEach(element => {
+        response.push(element.pokemon.url)
+        this.findByUrl(element.pokemon.url).subscribe(
+          r => {
+            response.push(r);
+          }
+        )
+      });
+    })
+    return response;
   }
 }

@@ -1,4 +1,9 @@
-<div class="card text-light" style="width:445px"  [ngClass]="pokemon.type === undefined ? 'default' : pokemon.type">
+<div class="card text-light" style="width:445px"  [ngClass]="pokemon.type === undefined ? 'default' : pokemon.type" (mouseover)="typeDetails()">
+  <div class="alert alert-dark description-box " role="alert" *ngIf="showType">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam minima temporibus facilis saepe perspiciatis rem error odit itaque quidem et. Repellat distinctio, iusto nisi eaque dolores ullam cupiditate rem consequatur.
+    </p>
+  </div>
   <img class="card-img-top" [src]="pokemon.image" alt="Card image">
   <div class="card-body">
     <h2 class="card-title">{{pokemon.name | titlecase}}</h2>

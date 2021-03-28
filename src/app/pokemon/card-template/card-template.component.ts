@@ -14,9 +14,11 @@ export class CardTemplateComponent implements OnInit {
   public pokemon: Pokemon;
 
   public faInfoCircle: IconDefinition;
+  public showType: boolean;
 
   constructor(private router: Router) { 
     this.faInfoCircle = faInfoCircle;
+    this.showType = false;
   }
 
   ngOnInit(): void {
@@ -24,5 +26,12 @@ export class CardTemplateComponent implements OnInit {
 
   public onLoad(): void {
     this.router.navigate(['poke-cards/pokemon', this.pokemon.name]);
+  }
+
+  typeDetails(): void {
+    this.showType = true;
+    setTimeout(()=>{                           //<<<---using ()=> syntax
+      this.showType = false;
+ }, 1500);
   }
 }

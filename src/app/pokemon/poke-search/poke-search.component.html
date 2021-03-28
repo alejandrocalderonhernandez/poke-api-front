@@ -19,8 +19,8 @@
                             Selecciona un tipo
                         </mat-label>
                         <mat-select formControlName="type">
-                            <div *ngFor="let type of types">
-                                <mat-option [value]="type">{{type}}</mat-option>
+                            <div *ngFor="let type of types | keyvalue">
+                                <mat-option [value]="type.key">{{type.value}}</mat-option>
                             </div>
                         </mat-select>
                     </mat-form-field>

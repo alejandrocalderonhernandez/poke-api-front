@@ -1,4 +1,5 @@
 export class ResponseInfo {
+    
     totalRecords: number;
     results: Array<string>;
 

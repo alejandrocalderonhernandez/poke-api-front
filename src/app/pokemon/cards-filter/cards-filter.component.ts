@@ -11,7 +11,6 @@ import { Component, OnInit } from '@angular/core';
 export class CardsFilterComponent implements OnInit {
 
   public pokeRecords: Array<Pokemon>;
-  public type: string;
 
   constructor(private activatedRoute: ActivatedRoute,
     private service: PokeService,
@@ -20,20 +19,8 @@ export class CardsFilterComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.type = this.activatedRoute.snapshot.params.type;
-    this.service.findAll().subscribe(
-      response => this.setPokemons(response.results)
-    )
-  }
-
-  private setPokemons(urls: Array<string>): void {
-    urls.forEach(url => this.service.findByUrl(url).subscribe(
-      pokemon => {
-        if (pokemon.type === this.type) {
-          this.pokeRecords.push(pokemon);
-        }
-      }
-    ));
+    const id = this.activatedRoute.snapshot.params.type;
+    this.pokeRecords = this.service.getByType(id);
   }
 
 }

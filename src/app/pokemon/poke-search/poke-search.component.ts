@@ -13,7 +13,7 @@ export class PokeSearchComponent implements OnInit {
 
   public searchForm: FormGroup;
   public faSearch: IconDefinition;
-  public types: Array<string>;
+  public types: Map<number, string>;
   public validForm;
 
   constructor(private formBuilder: FormBuilder, 
@@ -25,7 +25,7 @@ export class PokeSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getPokeTypes().subscribe(
-      data => this.types = data 
+      data => this.types = data
     )
     this.searchForm = this.formBuilder.group({
       name: [],
