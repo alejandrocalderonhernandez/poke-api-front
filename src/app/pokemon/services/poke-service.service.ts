@@ -99,19 +99,11 @@ export class PokeService {
     return response;
   }
 
-  public getByType(id: string): Array<Pokemon> {
-    let response = [];
-    const url = `${environment.baseUrl}type/${id}`;
-    this.httpClient.get(url).subscribe((data: any) => {
-      data.pokemon.forEach(element => {
-        response.push(element.pokemon.url)
-        this.findByUrl(element.pokemon.url).subscribe(
-          r => {
-            response.push(r);
-          }
-        )
-      });
-    })
-    return response;
+  public getByType(type: string): Observable<Array<any>> {
+    const url = `${environment.baseUrl}type/${type}`;
+    return this.httpClient.get(url).pipe(
+      map((r: any) => r.pokemon)
+    )
   }
+
 }
